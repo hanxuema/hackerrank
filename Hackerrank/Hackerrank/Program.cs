@@ -25,7 +25,7 @@ namespace Hackerrank
             {
                 if (i + d > a.Length - 1)
                 {
-                    newArr[i] = a[i+d-a.Length];
+                    newArr[i] = a[i + d - a.Length];
                 }
                 else
                 {
@@ -34,7 +34,6 @@ namespace Hackerrank
             }
 
             return newArr;
-
         }
          
     }
