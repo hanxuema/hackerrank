@@ -13,12 +13,10 @@ namespace Hackerrank.Tests
     {
         [TestMethod()]
         public void rotLeftTestTest()
-        {
-
-            var result = Program.rotLeft(new int[] { 41, 73, 89, 7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51 }, i);
+        { 
+            var result = Program.rotLeft(new int[] { 41, 73, 89, 7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51 }, 10);
 
             Assert.IsTrue(result.SequenceEqual(new int[] { 77, 97, 58, 1, 86, 58, 26, 10, 86, 51, 41, 73, 89, 7, 10, 1, 59, 58, 84, 77 }));
-
-        }
+        } 
     }
 }
