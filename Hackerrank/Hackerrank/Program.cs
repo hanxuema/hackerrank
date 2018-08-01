@@ -35,6 +35,45 @@ namespace Hackerrank
 
             return newArr;
         }
+
+        public static void checkMagazine(string[] magazine, string[] note)
+        {
+            var result = true;
+            var noteDic = ConvertStringArrayToDictionary(note);
+            var magazineDic = ConvertStringArrayToDictionary(magazine);
+
+            foreach (var kvp in noteDic)
+            {
+                if (!magazineDic.ContainsKey(kvp.Key))
+                {
+                    result = false;
+                    break;
+                }
+                if (magazineDic[kvp.Key] < kvp.Value)
+                {
+                    result = false;
+                    break;
+                }
+            }
+            Console.Write(result ? "Yes" : "No");
+        }
          
+        public static Dictionary<string, int> ConvertStringArrayToDictionary(string[] array)
+        {
+            var noteDic = new Dictionary<string, int>();
+            for (int i = 0; i < array.Length; i++)
+            {
+                var word = array[i];
+                if (noteDic.ContainsKey(word))
+                {
+                    noteDic[word]++;
+                }
+                else
+                {
+                    noteDic.Add(word, 1);
+                }
+            }
+            return noteDic;
+        }
     }
 }
