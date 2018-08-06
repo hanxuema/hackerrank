@@ -27,8 +27,8 @@ namespace Hackerrank.Tests
         [TestMethod()]
         public void BalancedBracketsTest()
         {
-            var input = new string[] { "{[()]}", "{[(])}", "{{[[(())]]}}" };
-            var results = new string[] { "YES", "NO", "YES" };
+            var input = new string[] { "[{" };
+            var results = new string[] { "NO" };
             for (int i = 0; i < input.Length; i++)
             { 
                 var result = Program.CheckBalancedBrackets(input[i]);

@@ -78,8 +78,15 @@ namespace Hackerrank
 
         public static string CheckBalancedBracket(string input)
         {
-            var stack = new Stack<string>();
+            var last = input[input.Length - 1].ToString();
             var result = "YES";
+            if (last == "[" || last == "(" || last == "{")
+            {
+                result = "NO";
+                return result;
+            }
+            var stack = new Stack<string>();
+
             for (int k = 0; k < input.Length; k++)
             {
                 var newValue = input[k].ToString();
@@ -110,6 +117,14 @@ namespace Hackerrank
                             break;
                     }
                 }
+                else
+                {
+                    if (newValue == "]" || newValue == "}" || newValue == ")")
+                    {
+                        result = "NO";
+                        break;
+                    }
+                }
 
                 stack.Push(newValue);
 
@@ -119,11 +134,12 @@ namespace Hackerrank
                     break;
                 }
             }
+
             return result;
         }
         public static string CheckBalancedBrackets(string input)
         {
-            var result = ""; 
+            var result = "";
 
             result = CheckBalancedBracket(input);
 
