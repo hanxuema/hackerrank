@@ -21,9 +21,19 @@ namespace Hackerrank.Tests
 
         [TestMethod()]
         public void checkMagazineTest()
-        {
-            Assert.Fail();
+        { 
         }
- 
+
+        [TestMethod()]
+        public void BalancedBracketsTest()
+        {
+            var input = new string[] { "{[()]}", "{[(])}", "{{[[(())]]}}" };
+            var results = new string[] { "YES", "NO", "YES" };
+            for (int i = 0; i < input.Length; i++)
+            { 
+                var result = Program.CheckBalancedBrackets(input[i]);
+                Assert.AreEqual(result, results[i]);
+            }
+        }
     }
 }

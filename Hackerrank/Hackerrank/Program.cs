@@ -57,7 +57,7 @@ namespace Hackerrank
             }
             Console.Write(result ? "Yes" : "No");
         }
-         
+
         public static Dictionary<string, int> ConvertStringArrayToDictionary(string[] array)
         {
             var noteDic = new Dictionary<string, int>();
@@ -75,5 +75,61 @@ namespace Hackerrank
             }
             return noteDic;
         }
+
+        public static string CheckBalancedBracket(string input)
+        {
+            var stack = new Stack<string>();
+            var result = "YES";
+            for (int k = 0; k < input.Length; k++)
+            {
+                var newValue = input[k].ToString();
+                var match = true;
+                var current = stack.Count == 0 ? null : stack.Peek();
+
+                if (current != null)
+                {
+                    switch (current)
+                    {
+                        case "{":
+                            if (newValue == "]" || newValue == ")")
+                            {
+                                match = false;
+                            }
+                            break;
+                        case "[":
+                            if (newValue == "}" || newValue == ")")
+                            {
+                                match = false;
+                            }
+                            break;
+                        case "(":
+                            if (newValue == "]" || newValue == "}")
+                            {
+                                match = false;
+                            }
+                            break;
+                    }
+                }
+
+                stack.Push(newValue);
+
+                if (!match)
+                {
+                    result = "NO";
+                    break;
+                }
+            }
+            return result;
+        }
+        public static string CheckBalancedBrackets(string input)
+        {
+            var result = ""; 
+
+            result = CheckBalancedBracket(input);
+
+            return result;
+        }
+
+
     }
 }
