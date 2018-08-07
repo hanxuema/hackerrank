@@ -75,6 +75,8 @@ namespace Hackerrank.Tests
 
             result = Program.CheckIfItemInArray(new int[] { 2, 2, 4, 3 }, 7);
             Assert.IsFalse(result);
+        public void checkMagazineTest()
+        { 
         }
 
         [TestMethod()]
@@ -88,6 +90,18 @@ namespace Hackerrank.Tests
 
             result = Program.CheckIfItemInArrayAndReturnIndex(new int[] { 2, 2, 4, 3 }, 7, -2);
             Assert.AreEqual(result, -1);
+        }
+
+        [TestMethod()]
+        public void BalancedBracketsTest()
+        {
+            var input = new string[] { "[{" };
+            var results = new string[] { "NO" };
+            for (int i = 0; i < input.Length; i++)
+            { 
+                var result = Program.CheckBalancedBrackets(input[i]);
+                Assert.AreEqual(result, results[i]);
+            }
         }
     }
 }

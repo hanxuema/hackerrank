@@ -119,6 +119,78 @@ namespace Hackerrank
             return noteDic;
         }
 
+        public static string CheckBalancedBracket(string input)
+        {
+            var last = input[input.Length - 1].ToString();
+            var result = "YES";
+            if (last == "[" || last == "(" || last == "{")
+            {
+                result = "NO";
+                return result;
+            }
+            var stack = new Stack<string>();
+
+            for (int k = 0; k < input.Length; k++)
+            {
+                var newValue = input[k].ToString();
+                var match = true;
+                var current = stack.Count == 0 ? null : stack.Peek();
+
+                if (current != null)
+                {
+                    switch (current)
+                    {
+                        case "{":
+                            if (newValue == "]" || newValue == ")")
+                            {
+                                match = false;
+                            }
+                            break;
+                        case "[":
+                            if (newValue == "}" || newValue == ")")
+                            {
+                                match = false;
+                            }
+                            break;
+                        case "(":
+                            if (newValue == "]" || newValue == "}")
+                            {
+                                match = false;
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    if (newValue == "]" || newValue == "}" || newValue == ")")
+                    {
+                        result = "NO";
+                        break;
+                    }
+                }
+
+                stack.Push(newValue);
+
+                if (!match)
+                {
+                    result = "NO";
+                    break;
+                }
+            }
+
+            return result;
+        }
+        public static string CheckBalancedBrackets(string input)
+        {
+            var result = "";
+
+            result = CheckBalancedBracket(input);
+
+            return result;
+        }
+
+
+
         // Complete the whatFlavors function below.
         public static void whatFlavors(int[] cost, int money)
         {
