@@ -75,8 +75,7 @@ namespace Hackerrank.Tests
 
             result = Program.CheckIfItemInArray(new int[] { 2, 2, 4, 3 }, 7);
             Assert.IsFalse(result);
-        public void checkMagazineTest()
-        { 
+      
         }
 
         [TestMethod()]
